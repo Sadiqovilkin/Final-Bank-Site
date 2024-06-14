@@ -1,0 +1,20 @@
+#clientRegister{
+    form{
+        input{
+            border-color: $dark-blue-color;
+            &:focus{
+                box-shadow: none;
+            }
+        }
+        select{
+            border-color: $dark-blue-color;
+            &:focus{
+                box-shadow: none;
+            }
+        }
+        button{
+            border: none;
+            background-color: $orange-color !important;
+        }
+    }
+}
