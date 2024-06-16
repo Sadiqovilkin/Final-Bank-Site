@@ -4,7 +4,10 @@ import userSchema from '../../../validations/users.validations';
 import controller from '../../../services/requests';
 import { endpoints } from '../../../services/constant';
 import UsersClass from '../../../classes/users.class';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 const ClientRegister = () => {
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -26,7 +29,17 @@ const ClientRegister = () => {
       console.log(values);
       const newUsers = new UsersClass(values.name,values.surname,values.address,values.city,values.region , values.phone , values.dateofbirth, values.email , values.password , values.image , values.companyName , values.seniority , values.gender)
       controller.post(endpoints.Users , newUsers)
-      formik.resetForm()
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "User succses Sign Up",
+        showConfirmButton: false,
+        timer: 1500
+      }).then(()=>{
+
+        navigate('/login');
+      })
+      formik.resetForm()  
     },
     validationSchema:userSchema
   })
