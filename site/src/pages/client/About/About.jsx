@@ -1,8 +1,13 @@
 import React from 'react'
+import Hero from '../../../components/client/Hero/Hero'
+import AboutUs from './AboutUs/AboutUs'
 
 const About = () => {
   return (
-    <div>About</div>
+    <main>
+      <Hero text={"About Us"}/>
+      <AboutUs/>
+    </main>
   )
 }
 

@@ -17,7 +17,10 @@ const ClientLogin = () => {
     console.log(response);
     console.log(response.token);
     if (response.auth) {
-      setUserID(response.user._id);
+      setUserID({
+        Id:response.user._id,
+        role:response.user.role
+      });
           setLocalUserID({
             Id:response.user._id,
             role:response.user.role

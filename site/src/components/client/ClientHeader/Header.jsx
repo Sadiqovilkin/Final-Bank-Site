@@ -18,7 +18,7 @@ const Header = ({ userID, setUserID, setLocalUserID }) => {
           </div>
           <div className="col-9">
             <div className="row justify-content-between">
-              <div className="col-6">
+              <div className="col-7">
 
                 <div className="nav_items">
                   {userID ? <>
