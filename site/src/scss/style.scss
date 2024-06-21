@@ -8,7 +8,12 @@
 
 @import "./partials/variables";
 @import "./layout/clientHeader";
+// Components
 @import "./components/hero";
 @import "./components/abouUs";
+// Register
 @import "./pages/client/register/register";
+// dashboard
 @import "./pages/client/User/userDashboard";
+// Home
+@import "./pages/client/home/homeSlider";
