@@ -18,10 +18,8 @@ const userSchema = new mongoose.Schema(
         image: String,
         companyName: String,
         seniority: Number,
-        gender: {
-            type:String,
-            enum:['male','female']
-        },
+        userId:String,
+        gender: String,
         isVerified: {
             type: Boolean,
             default: false

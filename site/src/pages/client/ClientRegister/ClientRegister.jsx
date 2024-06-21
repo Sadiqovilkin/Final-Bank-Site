@@ -26,9 +26,10 @@ const ClientRegister = () => {
       gender: ""
     },
     onSubmit:(values)=>{
-      console.log(values);
+      // console.log(values);
       const newUsers = new UsersClass(values.name,values.surname,values.address,values.city,values.region , values.phone , values.dateofbirth, values.email , values.password , values.image , values.companyName , values.seniority , values.gender)
       controller.post(endpoints.Users , newUsers)
+     console.log("newUsers", newUsers);
       Swal.fire({
         position: "top-end",
         icon: "success",
