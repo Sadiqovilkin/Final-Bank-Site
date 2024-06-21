@@ -69,13 +69,9 @@ const user_controller = {
   },
   register: async (req, res) => {
     try {
-      const { username, email } = req.body;
-      const duplicateUserName = await UserModel.find({ username: username });
+      const {email } = req.body;
       const duplicateEmail = await UserModel.find({ email: email });
       let message = "";
-      if (duplicateUserName.length > 0) {
-        message = "username already exists";
-      }
       if (duplicateEmail.length > 0) {
         message = "email already exists";
       }
@@ -181,6 +177,12 @@ const user_controller = {
     }
     res.send({message:'hey'})
   },
+  // sendMoney: async (req,res) => {
+  //   const user = await UserModel.findOne({
+  //     userId: req.body.userId,
+      
+  //   });
+  // }
 };
 
 module.exports = user_controller;

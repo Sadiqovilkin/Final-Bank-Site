@@ -6,7 +6,9 @@ import { endpoints } from '../../../services/constant';
 import UsersClass from '../../../classes/users.class';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { useDataContext } from '../../../context/Context';
 const ClientRegister = () => {
+  const {userPost}=useDataContext()
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -26,9 +28,10 @@ const ClientRegister = () => {
       gender: ""
     },
     onSubmit:(values)=>{
-      // console.log(values);
+  
       const newUsers = new UsersClass(values.name,values.surname,values.address,values.city,values.region , values.phone , values.dateofbirth, values.email , values.password , values.image , values.companyName , values.seniority , values.gender)
-      controller.post(endpoints.Users , newUsers)
+      // controller.post(endpoints.Users , newUsers)
+      userPost(newUsers)
      console.log("newUsers", newUsers);
       Swal.fire({
         position: "top-end",
@@ -38,9 +41,9 @@ const ClientRegister = () => {
         timer: 1500
       }).then(()=>{
 
-        navigate('/login');
+        // navigate('/login');
       })
-      formik.resetForm()  
+      // formik.resetForm()  
     },
     validationSchema:userSchema
   })
@@ -68,7 +71,7 @@ const ClientRegister = () => {
                   <div className="d-flex gap-3">
                   <input placeholder="phone" className="form-control w-50  my-2" id="phone" name="phone" type="tel" onChange={formik.handleChange} value={formik.values.phone} />
                 {formik.errors.phone ? <div style={{ color: "red" }}>{formik.errors.phone}</div> : null}
-                <input placeholder="dateofbirth" className="form-control w-50  my-2" id="dateofbirth" name="dateofbirth" type="datetime-local" onChange={formik.handleChange} value={formik.values.dateofbirth} />
+                <input placeholder="dateofbirth" className="form-control w-50  my-2" id="dateofbirth" name="dateofbirth" type="date" onChange={formik.handleChange} value={formik.values.dateofbirth} />
                 {formik.errors.dateofbirth ? <div style={{ color: "red" }}>{formik.errors.dateofbirth}</div> : null}
                   </div>
                 <input placeholder="email" className="form-control  my-2" id="email" name="email" type="email" onChange={formik.handleChange} value={formik.values.email} />

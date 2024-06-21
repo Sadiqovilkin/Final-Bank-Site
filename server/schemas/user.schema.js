@@ -20,6 +20,8 @@ const userSchema = new mongoose.Schema(
         seniority: Number,
         userId:String,
         gender: String,
+        loans:Number,
+        balance:Number,
         isVerified: {
             type: Boolean,
             default: false

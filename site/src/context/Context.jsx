@@ -12,17 +12,21 @@ const DataContextProvider = ({ children }) => {
 
     // User Reguests
     const userGetAll = async () => {
-        await axios.get(BASE_URL  + `${endpoints.Users}`).then((res) => {
+        await axios.get(BASE_URL  + `/${endpoints.Users}`).then((res) => {
+            // console.log('res data: ',res.data)
             setUsers(res.data.data);
         });
     };
+    useEffect(() => {
+        userGetAll();
+    }, []);
     const userGetOne = async (id) => {
-        await axios.get(BASE_URL + `/${id}`).then((res) => {
+        await axios.get(BASE_URL + `/${endpoints.Users}` + `/${id}`).then((res) => {
             setOneUser(res.data.data);
         });
     };
     const userDelete = async (id) => {
-        await axios.delete(BASE_URL + `/${id}`).then((res) => {
+        await axios.delete(BASE_URL + `/${endpoints.Users}` + `/${id}`).then((res) => {
             try {
                 const deleteData = users.find((x) => x._id == id);
                 users.splice(users.indexOf(deleteData), 1);
@@ -38,24 +42,23 @@ const DataContextProvider = ({ children }) => {
         });
     };
 
+    const sendMoney = async (id , senduserId , money)=>{
+        console.log('id: ',id)
+        console.log('send id: ',senduserId)
+        console.log('money: ',money)
+        console.log('usrrs: ',users);
+        const mainUser =  users.find((x)=> x._id == id)
+        const sendUser = users.find((x)=> x.userId == senduserId)
+        console.log('user 1: ',mainUser);
+        console.log('user 2: ',sendUser);
+        mainUser.balance -= money
+        sendUser.balance += money 
+       await axios.patch(BASE_URL + `${endpoints.Users}` + `/${id}`, {balance: mainUser.balance})
+       await axios.patch(BASE_URL + `${endpoints.Users}` + `/${sendUser._id}`, {balance: sendUser.balance})
+    }
 
 
-
-
-
-
-
-
-
-    useEffect(() => {
-        userGetAll();
-    }, []);
-
-
-
-
-
-    const values = {users ,userGetAll,userGetOne,userDelete,userPost};
+    const values = {users,oneUser,sendMoney ,userGetAll,userGetOne,userDelete,userPost};
     return <dataContext.Provider value={values}>{children}</dataContext.Provider>;
 };
 
