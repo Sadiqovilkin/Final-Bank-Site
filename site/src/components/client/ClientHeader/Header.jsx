@@ -33,6 +33,9 @@ const Header = ({ userID, setUserID, setLocalUserID }) => {
                       <Link to={"/"} className='btn'>Services</Link>
                     </li>
                     <li>
+                      <Link to={"/blogs"} className='btn'>Blogs</Link>
+                    </li>
+                    <li>
                       <Link to={"/contact"} className='btn'>Contact</Link>
                     </li>
                     {userID.role == "client" ? <> <Link to={"/user-dashboard"} className='btn'>User Dashboard</Link>
@@ -48,6 +51,9 @@ const Header = ({ userID, setUserID, setLocalUserID }) => {
                     </li>
                     <li>
                       <Link to={"/"} className='btn'>Services</Link>
+                    </li>
+                    <li>
+                      <Link to={"/blogs"} className='btn'>Blogs</Link>
                     </li>
                     <li>
                       <Link to={"/contact"} className='btn'>Contact</Link>

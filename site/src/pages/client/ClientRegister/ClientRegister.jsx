@@ -41,9 +41,9 @@ const ClientRegister = () => {
         timer: 1500
       }).then(()=>{
 
-        // navigate('/login');
+        navigate('/login');
       })
-      // formik.resetForm()  
+      formik.resetForm()  
     },
     validationSchema:userSchema
   })

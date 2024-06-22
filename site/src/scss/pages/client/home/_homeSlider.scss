@@ -6,6 +6,98 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        .
+        display: flex;
+        align-items: center;
+        position: relative;
+    z-index: 0;
+    &::before{
+        position: absolute;
+        z-index: -1;
+        content: '';
+        background: #000;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        opacity: 0.5;
+    }
+        .inner{
+            position: absolute;
+            z-index: 5;
+            padding: 0 0 0 50px;
+            h1{
+                color: #ffffff;
+                font-size: 70px;
+                line-height: 80px;
+                font-weight: 700;
+                margin-bottom: 20px;
+                span{
+                    color: $orange-color;
+                }
+            }
+            .text{
+                font-size: 18px;
+    line-height: 32px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-bottom: 38px;
+            }
+            .link-box{
+                a{
+                    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #fff !important;
+    background-color: $orange-color;
+    text-align: center;
+    padding: 18px 35px;
+    z-index: 1;
+    transition: all 500ms ease;
+    text-decoration: none;
+                }
+            }
+        }
+    }
+    .swiper-button-prev{
+        width: 70px;
+    height: 70px;
+    line-height: 72px;
+    border-radius: 50%;
+    text-align: center;
+    background: #ffffff;
+    cursor: pointer;
+    z-index: 9;
+    margin-left: 40px;
+    font-size: 15px;
+    transition: .5s;
+    border: 2px solid #fff;
+    color: $orange-color;
+    // svg{
+    //     width:40px ;
+    // }
+    // &::after{
+    //     content: "";
+    // }
+    }
+    .swiper-button-next{
+        width: 70px;
+        height: 70px;
+        line-height: 72px;
+        border-radius: 50%;
+        text-align: center;
+        background: #ffffff;
+        cursor: pointer;
+        z-index: 9;
+        margin-left: 40px;
+        font-size: 15px;
+        transition: .5s;
+        border: 2px solid #fff;
+        color: $orange-color;
+        // svg{
+        //     width:40px ;
+        // }
+        // &::after{
+        //     content: "";
+        // }
     }
 }

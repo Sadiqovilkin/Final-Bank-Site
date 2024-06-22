@@ -115,7 +115,7 @@ const user_controller = {
   user_login: async (req, res) => {
     const user = await UserModel.findOne({
       email: req.body.email,
-      role: "client",
+      // role: "client" || "directory",
     });
     if (user) {
       bcrypt.compare(

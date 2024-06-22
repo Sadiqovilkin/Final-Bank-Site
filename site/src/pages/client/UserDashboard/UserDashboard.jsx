@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Hero from '../../../components/client/Hero/Hero'
 import { useFormik } from 'formik';
 import { useDataContext } from '../../../context/Context';
@@ -17,7 +17,9 @@ const UserDashboard = () => {
       sendMoney(userID.Id , values.userId , Number(values.money))
     }
   })
-  userGetOne(userID.Id)
+  useEffect(()=>{
+    userGetOne(userID.Id)
+  },[])
   // console.log(oneUser);
   return (
     <main>

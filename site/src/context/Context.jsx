@@ -37,24 +37,20 @@ const DataContextProvider = ({ children }) => {
         });
     };
     const userPost = async (payload) => {
-        await axios.post(BASE_URL+ `${endpoints.Users}`, payload).then(() => {
+        await axios.post(BASE_URL+ `/${endpoints.Users}`, payload).then(() => {
             setUsers([...users, payload]);
         });
     };
 
     const sendMoney = async (id , senduserId , money)=>{
-        console.log('id: ',id)
-        console.log('send id: ',senduserId)
-        console.log('money: ',money)
-        console.log('usrrs: ',users);
         const mainUser =  users.find((x)=> x._id == id)
         const sendUser = users.find((x)=> x.userId == senduserId)
-        console.log('user 1: ',mainUser);
-        console.log('user 2: ',sendUser);
+        // console.log('user 1: ',mainUser);
+        // console.log('user 2: ',sendUser);
         mainUser.balance -= money
         sendUser.balance += money 
-       await axios.patch(BASE_URL + `${endpoints.Users}` + `/${id}`, {balance: mainUser.balance})
-       await axios.patch(BASE_URL + `${endpoints.Users}` + `/${sendUser._id}`, {balance: sendUser.balance})
+       await axios.patch(BASE_URL + `/${endpoints.Users}` + `/${id}`, {balance: mainUser.balance})
+       await axios.patch(BASE_URL + `/${endpoints.Users}` + `/${sendUser._id}`, {balance: sendUser.balance})
     }
 
 

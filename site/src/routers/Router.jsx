@@ -3,6 +3,7 @@ import AdminLogin from "../pages/admin/AdminLogin/AdminLogin";
 import AdminRoot from "../pages/admin/AdminRoot";
 import Users from "../pages/admin/Users/Users";
 import About from "../pages/client/About/About";
+import Blogs from "../pages/client/Blogs/Blogs";
 import ClientLogin from "../pages/client/ClientLogin/ClientLogin";
 import ClientRegister from "../pages/client/ClientRegister/ClientRegister";
 import ClientRoot from "../pages/client/ClientRoot";
@@ -40,6 +41,10 @@ export const ROUTES = [
             {
                 path:"contact",
                 element:<Contact/>
+            },
+            {
+                path:"blogs",
+                element:<Blogs/>
             },
             {
                 path:"about",

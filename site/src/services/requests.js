@@ -28,7 +28,7 @@ async function getOne(endpoint, id, token) {
 //post
 async function post(endpoint, payload) {
   try {
-    const response = await axios.post(BASE_URL + endpoint, payload);
+    const response = await axios.post(BASE_URL + `/${endpoint}`, payload);
     return response.data;
   } catch (error) {
     return error;
