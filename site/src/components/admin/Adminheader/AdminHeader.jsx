@@ -142,7 +142,7 @@ export default function AdminHeader() {
         </ListItem>
         <ListItem>
           <ListItemButton>
-            <Link to={"/admin"} className='adminLinks'>Add-Blogs</Link>
+            <Link to={"/admin/blog-add"} className='adminLinks'>Add-Blogs</Link>
           </ListItemButton>
         </ListItem>
 

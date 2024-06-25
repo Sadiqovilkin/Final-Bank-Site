@@ -18,7 +18,7 @@ const Header = ({ userID, setUserID, setLocalUserID }) => {
           </div>
           <div className="col-9">
             <div className="row justify-content-between">
-              <div className="col-7">
+              <div className="col-9">
 
                 <div className="nav_items">
                   {userID ? <>
@@ -63,7 +63,7 @@ const Header = ({ userID, setUserID, setLocalUserID }) => {
                   </>}
                 </div>
               </div>
-              <div className="col-4">
+              <div className="col-3">
                 <div className="nav_btns">
                   {userID ? <>
                     <Link onClick={() => {

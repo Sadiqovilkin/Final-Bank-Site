@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { MdPersonOutline } from "react-icons/md";
 import { AiOutlineComment } from "react-icons/ai";
 import { Link } from 'react-router-dom';
+import controller from '../../../../services/requests';
+import { endpoints } from '../../../../services/constant';
 const BlogCards = () => {
     const [blogs, setBlogs] = useState([]);
 
     useEffect(()=>{
-        
+        controller.getAll(endpoints.Blogs).then((res)=>{
+            console.log(res.data);
+        })
     }, [ ])
     return (
         <section id='blogCards'>

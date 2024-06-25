@@ -4,7 +4,7 @@ import axios from "axios";
 //get all
 async function getAll(endpoint) {
   try {
-    const response = await axios.get(BASE_URL + endpoint);
+    const response = await axios.get(BASE_URL + `/${endpoint}`);
     return response.data;
   } catch (error) {
     return error;
@@ -14,7 +14,7 @@ async function getAll(endpoint) {
 //get one
 async function getOne(endpoint, id, token) {
   try {
-    const response = await axios.get(BASE_URL + endpoint + `/${id}`,{
+    const response = await axios.get(BASE_URL + `/${endpoint}` + `/${id}`,{
       headers: {
         'Authorization': `Bearer ${token}`
       }
@@ -38,7 +38,7 @@ async function post(endpoint, payload) {
 //delete
 async function deleteOne(endpoint, id) {
   try {
-    const response = await axios.delete(BASE_URL + endpoint + `/${id}`);
+    const response = await axios.delete(BASE_URL + `/${endpoint}` + `/${id}`);
     return response.data;
   } catch (error) {
     return error;
@@ -48,7 +48,7 @@ async function deleteOne(endpoint, id) {
 //put
 async function put(endpoint, id, payload) {
   try {
-    const response = await axios.put(BASE_URL + endpoint + `/${id}`, payload);
+    const response = await axios.put(BASE_URL + `/${endpoint}` + `/${id}`, payload);
     return response.data;
   } catch (error) {
     return error;
@@ -58,7 +58,7 @@ async function put(endpoint, id, payload) {
 //patch
 async function patch(endpoint, id, payload) {
   try {
-    const response = await axios.patch(BASE_URL + endpoint + `/${id}`, payload);
+    const response = await axios.patch(BASE_URL + `/${endpoint}` + `/${id}`, payload);
     return response.data;
   } catch (error) {
     return error;
