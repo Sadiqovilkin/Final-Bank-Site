@@ -1,0 +1,207 @@
+#calcuator {
+    #header {
+      font-size: 36px;
+      line-height: 45px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .btns {
+      display: flex;
+      justify-content: space-between;
+      button {
+        border-radius: 37px;
+        border: none;
+        padding: 6px 15px;
+        font-size: 16px;
+        background-color: #e8ecf1;
+        color: #2e3131;
+        line-height: 20px;
+        transition: 0.3s linear;
+        &:hover {
+          background-color: $orange-color;
+          color: #fff;
+        }
+      }
+      .active {
+        background-color: $orange-color;
+        color: #fff;
+      }
+    }
+    .row {
+      width: 100% !important;
+    }
+  
+    .loan_calcuate {
+      .desc {
+        color: $black-color !important;
+        h5 {
+          font-size: 25px;
+          font-weight: 400;
+        }
+        p {
+          font-size: 18px;
+          margin: 10px 0;
+        }
+      }
+      .forms {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        .range_design {
+          position: relative;
+          border: 1px solid #d4d4d4;
+          border-radius: 8px;
+          padding: 14px 15px 6px;
+          h6 {
+            font-size: 10px;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+          }
+          input[type="text"] {
+            border: none;
+            &:focus {
+              outline: none;
+            }
+          }
+          .range_values {
+            position: absolute;
+            display: flex;
+            bottom: -30px;
+            left: 0;
+            right: 0;
+            justify-content: space-between;
+            font-size: 14px;
+            span {
+              color: $black-color;
+              font-size: 12px;
+              font-weight: 300;
+            }
+          }
+        }
+  
+        input[type="range"] {
+          height: 28px;
+          -webkit-appearance: none;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: -4px;
+          overflow: hidden;
+          height: 6px;
+          cursor: pointer;
+          border-radius: 10px;
+          width: 100%;
+          &:focus {
+            outline: none;
+          }
+        }
+        input[type="range"]::-webkit-slider-runnable-track {
+          width: 100%;
+          height: 6px;
+          cursor: pointer;
+          animate: 0.2s;
+          background: #ddd;
+          border: none;
+          border-radius: 5px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+          border: 0.5px solid white;
+          height: 20px;
+          width: 20px;
+          border-radius: 42px;
+          background-color: $orange-color;
+          box-shadow: -100vw 0 0 99vw $orange-color;
+          cursor: pointer;
+          -webkit-appearance: none;
+          margin-top: -7.5px;
+        }
+        input[type="range"]::-moz-range-track {
+          width: 100%;
+          height: 6px;
+          cursor: pointer;
+          animate: 0.2s;
+          box-shadow: 0px 0px 0px #000000;
+          background: #fff;
+          border-radius: 5px;
+          border: 0px solid $orange-color;
+        }
+        input[type="range"]::-moz-range-thumb {
+          box-shadow: 1px 1px 1px #000000;
+          border: 1px solid #ffffff;
+          height: 20px;
+          width: 5px;
+  
+          background: $orange-color;
+          cursor: pointer;
+        }
+        input[type="range"]::-ms-track {
+          width: 100%;
+          height: 6px;
+          cursor: pointer;
+          animate: 0.2s;
+          background: transparent;
+          border-color: transparent;
+          color: transparent;
+        }
+        input[type="range"]::-ms-fill-lower {
+          background: $orange-color;
+          border: 0px solid $orange-color;
+          border-radius: 10px;
+          box-shadow: 0px 0px 0px #000000;
+        }
+        input[type="range"]::-ms-fill-upper {
+          background: $orange-color;
+          border: 0px solid $orange-color;
+          border-radius: 10px;
+          box-shadow: 0px 0px 0px #000000;
+        }
+        input[type="range"]::-ms-thumb {
+          margin-top: 1px;
+          box-shadow: 1px 1px 1px #000000;
+          border: 1px solid #ffffff;
+          height: 20px;
+          width: 20px;
+          border-radius: 42px;
+          background: $orange-color;
+          cursor: pointer;
+        }
+        input[type="range"]:focus::-ms-fill-lower {
+          background: $orange-color;
+        }
+        input[type="range"]:focus::-ms-fill-upper {
+          background: $orange-color;
+        }
+      }
+    }
+    .calcuator_sum {
+      border-radius: 8px;
+      border: 1px solid #eaeaea;
+      padding: 24px;
+      text-align: center;
+      h3 {
+        font-size: 24px !important;
+        line-height: 36px;
+        margin-bottom: 33px;
+      }
+      h2 {
+        color: $orange-color;
+        font-size: 56px;
+        line-height: 70px;
+      }
+      button {
+        background-color: $orange-color;
+        border-radius: 8px;
+        display: inline-block;
+        padding: 11px 20px 14px;
+        font-size: 24px;
+        color: #fff !important;
+        line-height: 30px;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s linear;
+        width: 100%;
+      }
+    }
+  }
