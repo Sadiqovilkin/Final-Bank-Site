@@ -18,11 +18,11 @@ const Header = ({ userID, setUserID, setLocalUserID }) => {
           </div>
           <div className="col-9">
             <div className="row justify-content-between">
+            {userID ? <>
               <div className="col-9">
 
-                <div className="nav_items">
-                  {userID ? <>
-                    <ul>
+<div className="nav_items">
+<ul>
                     <li>
                       <Link to={"/"} className='btn'>Home</Link>
                     </li>
@@ -41,8 +41,14 @@ const Header = ({ userID, setUserID, setLocalUserID }) => {
                     {userID.role == "client" ? <> <Link to={"/user-dashboard"} className='btn'>User Dashboard</Link>
                     </>: <Link to={"/company-dashboard"} className='btn'>Company Dashboard</Link>}
                   </ul>
+</div>
+</div>
+                   
                   </> :<>
-                  <ul>
+                  <div className="col-7">
+
+<div className="nav_items">
+<ul>
                     <li>
                       <Link to={"/"} className='btn'>Home</Link>
                     </li>
@@ -60,12 +66,15 @@ const Header = ({ userID, setUserID, setLocalUserID }) => {
                     </li>
 
                   </ul>
+</div>
+</div>
+                 
                   </>}
-                </div>
-              </div>
-              <div className="col-3">
-                <div className="nav_btns">
                   {userID ? <>
+                    <div className="col-3">
+                <div className="nav_btns">
+                  
+
                     <Link onClick={() => {
                       Swal.fire({
                         title: "Are you sure?",
@@ -90,13 +99,19 @@ const Header = ({ userID, setUserID, setLocalUserID }) => {
                         }
                       });
                     }} className='btn open'>Log Out</Link>
-                  </> : <>
-                    <Link to={"/login"} className='btn login'>Login</Link>
-                    <Link to={"/register"} className='btn open'>Open Account</Link>
-                  </>}
-
                 </div>
               </div>
+                  </> : <>
+                  <div className="col-5">
+                <div className="nav_btns">
+                  
+
+                    <Link to={"/login"} className='btn login'>Login</Link>
+                    <Link to={"/register"} className='btn open'>Open Account</Link>
+                </div>
+              </div>
+                  </>}
+              
             </div>
           </div>
         </div>

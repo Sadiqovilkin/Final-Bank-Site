@@ -6,6 +6,7 @@ import BlogEdits from "../pages/admin/BlogEdits/BlogEdits";
 import Users from "../pages/admin/Users/Users";
 import About from "../pages/client/About/About";
 import Blogs from "../pages/client/Blogs/Blogs";
+import BlogDetail from "../pages/client/BlogsDetails/BlogDetail";
 import ClientLogin from "../pages/client/ClientLogin/ClientLogin";
 import ClientRegister from "../pages/client/ClientRegister/ClientRegister";
 import ClientRoot from "../pages/client/ClientRoot";
@@ -47,6 +48,10 @@ export const ROUTES = [
             {
                 path:"blogs",
                 element:<Blogs/>
+            },
+            {
+                path:"blogdetail/:id",
+                element:<BlogDetail/>
             },
             {
                 path:"about",
