@@ -59,8 +59,8 @@
         }
     }
     .swiper-button-prev{
-        width: 70px;
-    height: 70px;
+        width: 50px;
+    height: 50px;
     line-height: 72px;
     border-radius: 50%;
     text-align: center;
@@ -75,13 +75,14 @@
     // svg{
     //     width:40px ;
     // }
-    // &::after{
-    //     content: "";
-    // }
+    &::after{
+        // content: "";
+        font-size: 25px;
+    }
     }
     .swiper-button-next{
-        width: 70px;
-        height: 70px;
+        width: 50px;
+        height: 50px;
         line-height: 72px;
         border-radius: 50%;
         text-align: center;
@@ -96,8 +97,8 @@
         // svg{
         //     width:40px ;
         // }
-        // &::after{
-        //     content: "";
-        // }
+        &::after{
+            font-size: 25px;
+        }
     }
 }

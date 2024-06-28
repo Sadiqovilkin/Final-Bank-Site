@@ -1,0 +1,144 @@
+#news {
+    .loan_card {
+      background: #e8ecf1;
+      border-radius: 8px;
+  
+      padding: 40px 40px 0;
+      .head {
+        h2 {
+          font-size: 36px;
+          color: $black-color;
+        }
+      }
+      .body {
+        display: flex;
+        .description {
+          padding: 10px 5px 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          p {
+            font-size: 16px;
+            // word-spacing: 5px;
+            max-width: 268px;
+            line-height: 19px;
+          }
+          a {
+            text-decoration: none;
+            color: $orange-color;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            &:hover {
+              color: #830036;
+            }
+          }
+        }
+        .card_img {
+          margin-top: -80px;
+          img {
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+    .red_news {
+      margin-left: 10px;
+      background-color: $orange-color;
+      .head {
+        h2 {
+          color: $white-color;
+        }
+      }
+      .body {
+        .description {
+          p {
+            color: $white-color;
+          }
+          a {
+            color: $white-color;
+            &:hover {
+              color: $white-color;
+            }
+          }
+        }
+      }
+    }
+    .bg_gray {
+      
+        background: #e8ecf1;
+      .news_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid $white-color;
+        h3 {
+          font-size: 36px;
+          line-height: 45px;
+          color: $black-color;
+          margin: 0;
+          padding: 0;
+        }
+        a {
+          font-size: 16px;
+          color: $orange-color;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          text-decoration: none;
+          &:hover {
+            color: #830036;
+          }
+        }
+      }
+    }
+    .news_card {
+      display: flex;
+      gap: 20px;
+      .card_left {
+        .circle_div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: 1px solid $orange-color;
+          span {
+            font-size: 24px;
+            color: $black-color;
+          }
+        }
+        p {
+          margin-left: 10px;
+          font-size: 14px;
+          color: $black-color;
+        }
+      }
+      .card_right {
+        p {
+          padding: 0;
+          margin: 0;
+          font-size: 17px;
+          color: $black-color;
+        }
+      }
+      &:hover {
+        .card_left {
+          .circle_div {
+            background-color: $orange-color;
+            span {
+              color: $white-color;
+            }
+          }
+        }
+        .card_right {
+          p {
+            color: $orange-color;
+          }
+        }
+      }
+    }
+  }
