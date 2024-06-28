@@ -1,0 +1,95 @@
+#ourServices{
+    background-color: #F6F6F6;
+    padding: 120px 20px;
+    .section_header{
+        text-align: center;
+        h6{
+            color: $orange-color;
+            font-family: "Manrope", Sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 22px;
+        }
+        h2{
+            color: $dark-blue-color;
+            font-family: "Manrope", Sans-serif;
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 52px;
+        }
+    }
+    .serviceCard{
+        background-color: $white-color;
+        padding: 30px 15px 30px 30px;
+        position: relative;
+        z-index: 0;
+        &::after{
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 0%;
+            transition: .5s all;
+            background-color: $orange-color;
+            content: "";
+        }
+        &:hover{
+            &::after{
+                height: 100%;
+            }
+            .card_icon{
+                svg{
+                    fill: $white-color;
+                }
+            }
+            .card_text{
+                h3{
+                    text-decoration: underline;
+                    color:  $white-color;
+                }
+                ul{
+                    li{
+                        color:  $white-color;
+
+                    }
+                }
+            }
+        }
+        .card_icon{
+
+            padding: 0 0 20px;
+            svg{
+                width: 40px;
+                height: 40px;
+                transition: .5s all;
+            }
+        }
+        .card_text{
+         
+            h3{
+                transition: .5s all;
+                color: #141417;
+                font-family: "Manrope", Sans-serif;
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 26px;
+                padding: 0 0 20px;
+            }
+            ul{
+
+                li{
+                    transition: .5s all;
+                    list-style: disc;
+                    font-family: "Inter", Sans-serif;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 32px;
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+}
