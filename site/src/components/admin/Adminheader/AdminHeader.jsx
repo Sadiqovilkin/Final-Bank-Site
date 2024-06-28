@@ -14,12 +14,10 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import { Link, useNavigate, useOutletContext } from 'react-router-dom';
 import "./Header.scss"
+import { useDataContext } from '../../../context/Context';
+import Swal from 'sweetalert2';
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -68,12 +66,9 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 export default function AdminHeader() {
-  // const [adminID] = useOutletContext();
-  // console.log(adminID);
+  const {adminID,setAdminID,setLocalAdminID} = useDataContext()
   const navigate = useNavigate();
-  // if (!adminID) {
-    // navigate("/admin/login")
-  // }
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -103,6 +98,7 @@ export default function AdminHeader() {
           <Typography variant="h6" noWrap component="div">
            Ilk Bank - Admin
           </Typography>
+
         </Toolbar>
       </AppBar>
       <Drawer
@@ -143,6 +139,33 @@ export default function AdminHeader() {
         <ListItem>
           <ListItemButton>
             <Link to={"/admin/blog-add"} className='adminLinks'>Add-Blogs</Link>
+          </ListItemButton>
+        </ListItem>
+        <ListItem>
+          <ListItemButton onClick={()=>{
+            Swal.fire({
+              title: "Are you sure?",
+              text: "You log Out Profile!",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#3085d6",
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Yes, LogOut!"
+            }).then((result) => {
+              if (result.isConfirmed) {
+                setAdminID(null);
+                setLocalAdminID(null);
+                Cookies.remove("admintoken");
+                Swal.fire({
+                  title: "Deleted!",
+                  text: "Your file has been deleted.",
+                  icon: "success"
+                });
+              }
+            });
+        
+          }}>
+           LogOut
           </ListItemButton>
         </ListItem>
 

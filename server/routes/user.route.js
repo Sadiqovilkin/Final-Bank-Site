@@ -8,6 +8,7 @@ user_router.delete("/api/users/:id", controller.delete);
 user_router.patch("/api/users/:id", controller.update);
 user_router.post("/api/users", controller.register);
 user_router.post("/api/login", controller.user_login);
+user_router.post("/api/adminlogin", controller.admin_login);
 user_router.get("/api/verify/:token", controller.verify);
 
 

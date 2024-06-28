@@ -1,3 +1,4 @@
+import ErrorPage from "../pages/Error/ErrorPage";
 import AdminDashboar from "../pages/admin/AdminDashboard/AdminDashboar";
 import AdminLogin from "../pages/admin/AdminLogin/AdminLogin";
 import AdminRoot from "../pages/admin/AdminRoot";
@@ -69,10 +70,6 @@ export const ROUTES = [
                 element:<AdminDashboar/>
             },
             {
-                path:"login",
-                element:<AdminLogin/>
-            },
-            {
                 path:"users",
                 element:<Users/>
             },
@@ -87,5 +84,13 @@ export const ROUTES = [
 
 
         ]
+    },
+    {
+        path:"admin/login",
+        element:<AdminLogin/>
+    },
+    {
+        path:"*",
+        element:<ErrorPage/>
     },
 ]

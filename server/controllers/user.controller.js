@@ -152,6 +152,47 @@ const user_controller = {
       });
     }
   },
+  admin_login: async (req, res) => {
+    const user = await UserModel.findOne({
+      email: req.body.email,
+      role: "admin",
+    });
+    if (user) {
+      bcrypt.compare(
+        req.body.password,
+        user.password,
+        function (err, response) {
+          if (response) {
+            if (user.isVerified == true) {
+              const token = generateAccessToken(user);
+              res.send({
+                message: "signed in successfully",
+                auth: true,
+                user: user,
+                token: token,
+              });
+            } else {
+              res.send({
+                message: "verify your email",
+                auth: false,
+              });
+            }
+          } else {
+            res.send({
+              message: "email or password is incorrect",
+              auth: false,
+            });
+          }
+        }
+      );
+    } else {
+      res.send({
+        message: "no such user",
+        auth: false,
+      });
+    }
+  },
+
   verify: async (req, res) => {
     const{token} = req.params;
     const validToken = jwt.verify(token, process.env.PRIVATE_KEY);

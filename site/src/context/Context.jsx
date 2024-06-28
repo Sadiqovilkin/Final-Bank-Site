@@ -2,6 +2,7 @@ import { useParams } from "react-router";
 import axios from "axios"
 import { createContext, useContext, useState, useEffect } from "react";
 import { endpoints ,BASE_URL } from "../services/constant";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 
 const dataContext = createContext(null);
@@ -9,7 +10,10 @@ const dataContext = createContext(null);
 const DataContextProvider = ({ children }) => {
     const [users, setUsers] = useState([]);
     const [oneUser, setOneUser] = useState([]);
-
+    
+    const localadminID = JSON.parse(localStorage.getItem('adminID'));
+    const[localAdminID, setLocalAdminID] = useLocalStorage('adminID', null);
+    const [adminID, setAdminID] = useState(localadminID ? localadminID : null);
     // User Reguests
     const userGetAll = async () => {
         await axios.get(BASE_URL  + `/${endpoints.Users}`).then((res) => {
@@ -54,7 +58,7 @@ const DataContextProvider = ({ children }) => {
     }
 
 
-    const values = {users,oneUser,sendMoney ,userGetAll,userGetOne,userDelete,userPost};
+    const values = {users,oneUser,sendMoney ,userGetAll,userGetOne,userDelete,userPost,adminID,setAdminID,setLocalAdminID};
     return <dataContext.Provider value={values}>{children}</dataContext.Provider>;
 };
 
