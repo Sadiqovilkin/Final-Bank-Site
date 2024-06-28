@@ -14,7 +14,7 @@ const Header = ({ userID, setUserID, setLocalUserID }) => {
   const [scrollNavbar, setScrollNavbar] = useState("navSticky");
   useEffect(()=>{
     const handleScroll = () => {
-      console.log(window.scrollY);
+      // console.log(window.scrollY);
       
       if (window.scrollY > 200) {
         setScrollNavbar("navFixed");

@@ -3,22 +3,33 @@ import Hero from '../../../components/client/Hero/Hero'
 import { useFormik } from 'formik';
 import { useDataContext } from '../../../context/Context';
 import { useOutletContext } from 'react-router-dom';
+import controller from '../../../services/requests';
+import { endpoints } from '../../../services/constant';
+import { useState } from 'react';
 
 const UserDashboard = () => {
   const [setUserID, setLocalUserID,userID] = useOutletContext();
-  const{sendMoney,userGetOne,oneUser}= useDataContext()
+  const{sendMoney,userGetOne}= useDataContext()
+  const [oneUser, setOneUser] = useState([]);
+  function getUser() {
+     controller.getOne(endpoints.Users , userID.Id).then((res)=>{
+      setOneUser(res.data)
+    })
+  }
   const formik = useFormik({
     initialValues:{
       userId:"",
       money:""
     },
-    onSubmit: (values)=>{
+    onSubmit: async (values)=>{
       console.log('send id values: ',values.userId);
-      sendMoney(userID.Id , values.userId , Number(values.money))
+      await sendMoney(userID.Id , values.userId , Number(values.money))
+      getUser()
+      formik.resetForm()
     }
   })
   useEffect(()=>{
-    userGetOne(userID.Id)
+    getUser()
   },[])
   // console.log(oneUser);
   return (
@@ -89,6 +100,57 @@ const UserDashboard = () => {
                     <br />
                     <button type='submit'>Send</button>
                   </form>
+                </div>
+              </div>
+              <div className="col-lg-8">
+                <div className="activity">
+
+                <div className="message_card">
+                <div className="row align-items-center">
+                  <div className="col-6">
+                    <div className="loan_message">
+                      <input type="text" value={`Mebleg : 5000`} disabled />
+                      <input type="text" value={`Nece Ayliq : 16`} disabled />
+                      <input type="text" value={`Faiz : 17`} disabled />
+                      <input type="text" value={`Ayliq Odenis:450`} disabled />
+                      <input type="text" value={`Bank Status : Yoxlanisdadir`} disabled className="time" />
+                    </div>
+                
+                  </div>
+                  <div className="col-6">
+                  <div className="loan_btn">
+                      <button className="btn btn-success">Accept</button>
+                      <button className="btn btn-danger">Reject</button>
+                    </div>
+                    <div className="loan_status my-2">
+                      Status: <span className='success'>Succsess</span> <span>Pending</span>  <span className='reject'>Rejected</span>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div className="message_card ">
+                <div className="row align-items-center">
+                  <div className="col-6">
+                    <div className="loan_message">
+                      <input type="text" value={`Mebleg : 5000`} disabled />
+                      <input type="text" value={`Nece Ayliq : 16`} disabled />
+                      <input type="text" value={`Faiz : 17`} disabled />
+                      <input type="text" value={`Ayliq Odenis:450`} disabled />
+                      <input type="text" value={`Bank Status : Yoxlanisdadir`} disabled className="time" />
+                    </div>
+                
+                  </div>
+                  <div className="col-6">
+                  <div className="loan_btn">
+                      <button className="btn btn-success">Accept</button>
+                      <button className="btn btn-danger">Reject</button>
+                    </div>
+                    <div className="loan_status my-2">
+                      Status: <span className='success'>Succsess</span> <span>Pending</span>  <span className='reject'>Rejected</span>
+                    </div>
+                  </div>
+                </div>
+                </div>
                 </div>
               </div>
             </div>

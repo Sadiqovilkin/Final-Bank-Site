@@ -141,5 +141,60 @@ margin: 0 0 10px;
                 }
             }
         }
+        .activity{
+            .message_card{
+                border-bottom: 1px solid $gray-color;
+                border-top: 1px solid $gray-color;
+                padding: 20px 0;
+                .loan_message{
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    gap: 10px;
+                    input{
+                        width: 45%;
+                    }
+                    .time{
+                        width: 100%;
+                    }
+                }
+    
+                .loan_btn{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    .btn-success{
+                        background-color: $cyan-color;
+                        transition: .5s all;
+                        &:hover{
+                            background-color: $dark-blue-color;
+                        }
+                    }
+                    .btn-danger{
+                        background-color: $orange-color;
+                        transition: .5s all;
+                        &:hover{
+                            background-color: rgb(238, 44, 10);
+                        }
+                    }
+                }
+                .loan_status{
+                    font-size: 15px;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+    
+                    .success{
+                        color: $cyan-color;
+                    }
+                    .reject{
+                        color: rgb(238, 44, 10);
+                    }
+                }
+            }
+        }
     }
 }

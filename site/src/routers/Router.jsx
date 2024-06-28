@@ -11,86 +11,92 @@ import BlogDetail from "../pages/client/BlogsDetails/BlogDetail";
 import ClientLogin from "../pages/client/ClientLogin/ClientLogin";
 import ClientRegister from "../pages/client/ClientRegister/ClientRegister";
 import ClientRoot from "../pages/client/ClientRoot";
-import CompanyDashboard from "../pages/client/CompanyDashboard/CompanyDashboard";
+
 import Contact from "../pages/client/Contact/Contact";
+import CompanyDashboard from "../pages/client/Home/CompanyDashboard/CompanyDashboard";
 import Home from "../pages/client/Home/Home";
+import LoanForm from "../pages/client/UserDashboard/LoanForm";
 import UserDashboard from "../pages/client/UserDashboard/UserDashboard";
 
 
 export const ROUTES = [
     {
-        path:"/",
-        element:<ClientRoot/>,
-        children:[
+        path: "/",
+        element: <ClientRoot />,
+        children: [
             {
-                index:true,
-                element:<Home/>
+                index: true,
+                element: <Home />
             },
             {
-                path:"login",
-                element:<ClientLogin/>
+                path: "login",
+                element: <ClientLogin />
             },
             {
-                path:"register",
-                element:<ClientRegister/>
+                path: "register",
+                element: <ClientRegister />
             },
             {
-                path:"user-dashboard",
-                element:<UserDashboard/>
+                path: "user-dashboard",
+                element: <UserDashboard />
             },
             {
-                path:"company-dashboard",
-                element:<CompanyDashboard/>
+                path: "user-dashboard/loan-form",
+                element: <LoanForm />
             },
             {
-                path:"contact",
-                element:<Contact/>
+                path: "company-dashboard",
+                element: <CompanyDashboard />
             },
             {
-                path:"blogs",
-                element:<Blogs/>
+                path: "contact",
+                element: <Contact />
             },
             {
-                path:"blogdetail/:id",
-                element:<BlogDetail/>
+                path: "blogs",
+                element: <Blogs />
             },
             {
-                path:"about",
-                element:<About/>
+                path: "blogdetail/:id",
+                element: <BlogDetail />
+            },
+            {
+                path: "about",
+                element: <About />
             },
 
         ]
     },
     {
-        path:"/admin",
-        element:<AdminRoot/>,
-        children:[
+        path: "/admin",
+        element: <AdminRoot />,
+        children: [
             {
-                index:true,
-                element:<AdminDashboar/>
+                index: true,
+                element: <AdminDashboar />
             },
             {
-                path:"users",
-                element:<Users/>
+                path: "users",
+                element: <Users />
             },
             {
-                path:"blog-add",
-                element:<BlogAdd/>
+                path: "blog-add",
+                element: <BlogAdd />
             },
             {
-                path:"blog/edit/:id",
-                element:<BlogEdits/>
+                path: "blog/edit/:id",
+                element: <BlogEdits />
             },
 
 
         ]
     },
     {
-        path:"admin/login",
-        element:<AdminLogin/>
+        path: "admin/login",
+        element: <AdminLogin />
     },
     {
-        path:"*",
-        element:<ErrorPage/>
+        path: "*",
+        element: <ErrorPage />
     },
 ]

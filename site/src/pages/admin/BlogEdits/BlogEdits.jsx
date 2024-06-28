@@ -49,11 +49,11 @@ const BlogEdits = () => {
                 <form onSubmit={formik.handleSubmit} >
             <input placeholder="title" className="form-control my-2" id="title" name="title" type="text"onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          value={updateBlog.title} />
+          defaultValue={updateBlog.title} />
               {formik.errors.title ? <div style={{ color: "red" }}>{formik.errors.title}</div> : null}
-            <input placeholder="description" className="form-control my-2" id="description" name="description" type="text" onChange={formik.handleChange} value={updateBlog.description} />
+            <input placeholder="description" className="form-control my-2" id="description" name="description" type="text" onChange={formik.handleChange} defaultValue={updateBlog.description} />
               {formik.errors.description ? <div style={{ color: "red" }}>{formik.errors.description}</div> : null}
-            <input placeholder="src" className="form-control my-2" id="src" name="src" type="text" onChange={formik.handleChange} value={updateBlog.src} />
+            <input placeholder="src" className="form-control my-2" id="src" name="src" type="text" onChange={formik.handleChange} defaultValue={updateBlog.src} />
               {formik.errors.src ? <div style={{ color: "red" }}>{formik.errors.src}</div> : null}
 
             <button  className="btn btn-info text-white" type='submit'>Edit Blogs</button>

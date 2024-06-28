@@ -10,14 +10,11 @@ async function getAll(endpoint) {
     return error;
   }
 }
-
 //get one
-async function getOne(endpoint, id, token) {
+async function getOne(endpoint, id) {
   try {
     const response = await axios.get(BASE_URL + `/${endpoint}` + `/${id}`,{
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
+
     });
     return response.data;
   } catch (error) {

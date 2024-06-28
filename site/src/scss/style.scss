@@ -16,12 +16,15 @@
 @import "./pages/client/register/register";
 @import "./pages/client/login/login";
 // dashboard
+@import "./pages/client/User/loanForm";
 @import "./pages/client/User/userDashboard";
+@import "./pages/client/home/_companyDashboard.scss";
 // Home
 @import "./pages/client/home/homeSlider";
 @import "./pages/client/home/news";
 @import "./pages/client/home/calcuator";
 @import "./pages/client/home/ourservices";
+
 
 // Blogs
 @import "./pages/client/blogs/blogCards";
