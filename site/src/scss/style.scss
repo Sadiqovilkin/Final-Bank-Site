@@ -18,12 +18,13 @@
 @import "./pages/client/User/userDashboard";
 // Home
 @import "./pages/client/home/homeSlider";
-<<<<<<< HEAD
 @import "./pages/client/home/news";
-=======
 @import "./pages/client/home/calcuator";
->>>>>>> 9aba7c66deca0a3dff5648769b1e98d4b5974fd3
 
 // Blogs
 @import "./pages/client/blogs/blogCards";
 @import "./pages/client/blogs/blogDetail";
+
+
+// Footer
+@import './layout/footer'

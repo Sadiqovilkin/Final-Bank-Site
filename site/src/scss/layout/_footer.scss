@@ -1,0 +1,125 @@
+footer {
+    background-color: $black-color;
+    // font-family: $font-sourcePro;
+    padding: 35px 0 24px;
+    .list {
+      ul {
+        margin: 0;
+        padding: 0;
+        li {
+          list-style: none;
+          color: $white-color;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 21px;
+          margin: 0 0 10px;
+          &:nth-child(1) {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+    .dowland_links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      h3 {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+        color: #fafafa;
+        margin-bottom: 24px;
+      }
+      .mobile_store {
+        margin-top: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        .store {
+          a {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 6px;
+            padding: 6px 10px;
+            color: #2e3131;
+            min-width: 170px;
+            width: 180px;
+  
+            img {
+              margin-right: 8px;
+              width: 24px;
+              height: 24px;
+            }
+            p {
+              display: flex;
+              flex-direction: column;
+              margin: 0 !important;
+              font-size: 14px;
+              line-height: 18px;
+              text-align: start;
+            }
+          }
+        }
+      }
+    }
+    .footer_socials {
+      ul {
+        @media (max-width: 780px) {
+          margin-top: 25px;
+          justify-content: center;
+        }
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        padding: 0;
+        margin: 0;
+        li {
+          list-style: none;
+          a {
+            text-decoration: none;
+            svg {
+              color: $white-color;
+              width: 22px;
+              height: 22px;
+            }
+          }
+          .phoneNumber {
+            border: 1px solid $orange-color;
+            border-radius: 8px;
+            padding: 4px 7px;
+            display: flex;
+            align-items: center;
+            svg {
+              color: $orange-color;
+              width: 25px;
+              height: 25px;
+            }
+            span {
+              font-size: 18px;
+              font-weight: bold;
+              color: $white-color;
+            }
+          }
+        }
+      }
+    }
+    .footer_bottom {
+      border-top: 1px solid #4a4a4a;
+      margin-top: 34px;
+      padding-top: 24px;
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        color: $white-color;
+      }
+      .footer_logos {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+    }
+  }
