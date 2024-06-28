@@ -7,11 +7,14 @@ import { endpoints } from '../../../services/constant';
 import { Link } from 'react-router-dom';
 const BlogAdd = () => {
   const [blog , setBlog] = useState([])
+  function getBlogs() {
+    controller.getAll(endpoints.Blogs).then((res)=>{
+      // console.log(res.data);
+      setBlog(res.data)
+    })
+  }
 useEffect(()=>{
-  controller.getAll(endpoints.Blogs).then((res)=>{
-    console.log(res.data);
-    setBlog(res.data)
-  })
+  getBlogs()
 },[])
   const formik = useFormik({
     initialValues:{
@@ -19,10 +22,10 @@ useEffect(()=>{
       description:"",
       src:""
     },
-    onSubmit:({title,description,src})=>{
-      // console.log(values);
+    onSubmit: async ({title,description,src})=>{
       const newBlog = new Blogs(title,description,src,"66771a471a25d601098fdd2a")
-      controller.post(endpoints.Blogs , newBlog)
+      await controller.post(endpoints.Blogs , newBlog)
+      getBlogs()
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -63,8 +66,8 @@ useEffect(()=>{
               </thead>
               <tbody>
               {blog&& blog.map((el,idx)=>
-              <>
-                <tr>
+          
+                <tr key={idx}>
                   <td>{idx}</td>
                   <td>{el.title}</td>
                   <td>{el.description}</td>
@@ -81,9 +84,10 @@ useEffect(()=>{
                       confirmButtonColor: "#3085d6",
                       cancelButtonColor: "#d33",
                       confirmButtonText: "Yes, delete it!"
-                    }).then((result) => {
+                    }).then( async (result) => {
                       if (result.isConfirmed) {
-                        console.log(controller.delete(endpoints.Blogs , el._id));
+                        await controller.delete(endpoints.Blogs , el._id);
+                        getBlogs()
                         Swal.fire({
                           title: "Deleted!",
                           text: "Your file has been deleted.",
@@ -98,7 +102,7 @@ useEffect(()=>{
                     <Link to={`/admin/blog/edit/${el._id}`} className="btn btn-success">Edit</Link>
                   </td>
                 </tr>
-              </>
+              
               )}
               </tbody>
             </table>
