@@ -1,6 +1,6 @@
 #homeSlider{
     .sliders{
-        width: 100%;
+        width: 99%;
         height: 100vh;
         background-image: url("	https://23july.hostlin.com/metrobank/wp-content/uploads/2023/10/banner-2.jpg");
         background-repeat: no-repeat;
@@ -87,6 +87,7 @@
         border-radius: 50%;
         text-align: center;
         background: #ffffff;
+        margin-right: 20px;
         cursor: pointer;
         z-index: 9;
         margin-left: 40px;

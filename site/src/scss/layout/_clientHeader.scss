@@ -9,6 +9,15 @@
             width:100% ;
             height: 65px;    
             object-fit: contain;
+            @media (max-width:768px) {
+             width: 80%;
+            }
+        }
+    }
+    .desktopNavbar{
+
+        @media (max-width:1024px) {
+            display: none;
         }
     }
     .nav_items{
@@ -21,7 +30,12 @@
             gap: 20px;
             li{
                 list-style: none;
-                
+                a{
+                    transition: .5s all;
+                    &:hover{
+                        color: $orange-color;
+                    }
+                }
             }
         }
     }
@@ -48,5 +62,154 @@
                     color: $white-color;
                 }
         }
+    }
+    .mobileNavbar{
+        @media (max-width:1024px) {
+            display: flex;
+        }
+        @media (min-width:1024px) {
+            display: none;
+        }
+        svg{
+            width: 50px;
+            height: 50px;
+            fill:#000;
+        }
+    }
+    .disable{
+        width: 0;
+        display: none;  
+        overflow: hidden;
+    }
+    .active{
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 99;
+        width: 100%;
+        height: 100vh;
+        background-color: #0000004d;
+        display: flex;
+        justify-content: end;
+        .mobilNavbar{
+            padding: 10px 10px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 28%;
+            height: 100%;
+            background-color: $dark-blue-color;
+            color: $white-color;
+            @media (max-width:768px) {
+                width: 33%;
+            }
+            @media (max-width:468px) {
+                width: 50%;
+                .mobileBtns{
+                    .nav_btns{
+                        a{
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+            .mobileBtns{
+                .nav_btns{
+                    justify-content: center;
+                    a{
+                        border-radius: 0px;
+                        // border: 1px solid $black-color;
+                        border: none;
+                        font-weight: 600;
+                        transition: .4s all;
+                        padding: 5px 8px;
+                    }
+                    .login{
+                        background-color: $white-color;
+                        &:hover{
+                            background-color: $orange-color;
+                            color: $white-color;
+                        }
+                    }
+                    .open{
+                        background-color: $orange-color;
+                            color: $white-color;
+                            &:hover{
+                                background-color: $white-color;
+                                color: $dark-blue-color;
+                            }
+                    }
+                }
+                width: 100%;
+            }
+            .mobilenavbar_list{
+                width: 100%;
+                .nav_items{
+                    ul{
+                        flex-direction: column;
+                        gap: 0;
+                       li{
+                        width: 100%;
+                        padding: 10px;
+                        text-align: center;
+                        border: 1px solid $gray-color;
+                        border-left-color:transparent ;
+                        border-right-color:transparent ;
+                        transition: .5s all;
+                        &:hover{
+                            background-color: $white-color;
+                            a{
+                                color: $orange-color;
+                            }
+                        }
+                        a{
+                            transition: .5s all;
+                    &:hover{
+                        color: $orange-color;
+                    }
+                            color: #fff;
+                        }
+                       }
+                    }
+                }
+            }
+            .mobileNavbar_close{
+                width: 100%;
+                display: flex;
+                justify-content: end;
+                svg{
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+    }
+}
+.navFixed{
+    transition: .5s all;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 199;
+    background-color: #fff;
+}
+.navSticky{
+    transition: .5s all;
+}
+.scrollToTop{
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    z-index: 199;
+    button{
+        display: flex;gap: 20px;
+        border: none;
+        color: #000;
+        background-color: transparent;
+        transform: rotate(90deg);
+        color: $orange-color;
     }
 }
