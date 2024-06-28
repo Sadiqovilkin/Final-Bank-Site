@@ -52,8 +52,8 @@ const ClientLogin = () => {
   return (
     <section id='clientLogin'>
       <div className="container">
-        <div className="row">
-          <div className="col-lg-5">
+        <div style={{height:"90vh"}} className="row align-items-center justify-content-center">
+          <div className="col-lg-5 ">
             <form action="" onSubmit={formik.handleSubmit}>
               <input placeholder="email" className="form-control my-2" id="email" name="email" type="email" onChange={formik.handleChange} value={formik.values.email} />
               {formik.errors.email ? <div style={{ color: "red" }}>{formik.errors.email}</div> : null}

@@ -53,11 +53,12 @@ const AdminLogin = () => {
   },
   })
   return (
-    <section id='adminLogin'>
+    <section id='clientLogin'>
       <div className="container">
         <div style={{height:"100vh"}} className="row justify-content-center align-items-center">
           <div className="col-lg-5">
-            <form action="" onSubmit={formik.handleSubmit}>
+            <h1 className='py-3' style={{color:"#fff"}}>Admin - Login</h1>
+            <form  onSubmit={formik.handleSubmit}>
               <input placeholder="email" className="form-control my-2" id="email" name="email" type="email" onChange={formik.handleChange} value={formik.values.email} />
               {formik.errors.email ? <div style={{ color: "red" }}>{formik.errors.email}</div> : null}
 

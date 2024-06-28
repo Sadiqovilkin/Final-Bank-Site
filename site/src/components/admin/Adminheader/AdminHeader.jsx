@@ -141,7 +141,7 @@ export default function AdminHeader() {
             <Link to={"/admin/blog-add"} className='adminLinks'>Add-Blogs</Link>
           </ListItemButton>
         </ListItem>
-        <ListItem>
+        {adminID ? <ListItem>
           <ListItemButton onClick={()=>{
             Swal.fire({
               title: "Are you sure?",
@@ -167,18 +167,9 @@ export default function AdminHeader() {
           }}>
            LogOut
           </ListItemButton>
-        </ListItem>
+        </ListItem> : <></>}
+   
 
-          {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))} */}
         </List>
 
       </Drawer>

@@ -1,0 +1,25 @@
+#clientLogin{
+    // padding: 120px 0;
+    background-color: $dark-blue-color;
+    height: 100vh;
+    form{
+        padding: 15px;
+        background-color: #bfc2c7;
+        background-color: $gray-color;
+        border-radius: 10px;
+        input{
+            &:focus{
+                box-shadow: none;
+            }
+            border-color:rgba(255, 255, 255, 0.884) ;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        button{
+            background-color: $orange-color;
+        } 
+        a{
+            margin-left: 20px;
+            color: $cyan-color;
+        }
+    }
+}
