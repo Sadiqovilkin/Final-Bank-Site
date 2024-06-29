@@ -8,6 +8,11 @@ import useLocalStorage from "../hooks/useLocalStorage";
 const dataContext = createContext(null);
 
 const DataContextProvider = ({ children }) => {
+    const localID = JSON.parse(localStorage.getItem('userID'));
+    const[localUserID, setLocalUserID] = useLocalStorage('userID', null);
+    const [userID, setUserID] = useState(localID ? localID : null);
+
+
     const [users, setUsers] = useState([]);
     const [oneUser, setOneUser] = useState([]);
 
@@ -59,7 +64,7 @@ const DataContextProvider = ({ children }) => {
     }
 
 
-    const values = { users, oneUser, sendMoney, userGetAll, userGetOne, userDelete, userPost, adminID, setAdminID, setLocalAdminID };
+    const values = { users, oneUser, sendMoney, userGetAll, userGetOne, userDelete, userPost, adminID, setAdminID, setLocalAdminID,userID };
     return <dataContext.Provider value={values}>{children}</dataContext.Provider>;
 };
 

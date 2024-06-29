@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Hero from '../../../components/client/Hero/Hero'
 import { useFormik } from 'formik';
 import { useDataContext } from '../../../context/Context';
-import { useOutletContext } from 'react-router-dom';
+import { Link, useOutletContext } from 'react-router-dom';
 import controller from '../../../services/requests';
 import { endpoints } from '../../../services/constant';
 import { useState } from 'react';
@@ -100,6 +100,9 @@ const UserDashboard = () => {
                     <br />
                     <button type='submit'>Send</button>
                   </form>
+                </div>
+                <div className="create_newLoans">
+                  <Link to={"/user-dashboard/loan-form"}> New Loans Forms</Link>
                 </div>
               </div>
               <div className="col-lg-8">

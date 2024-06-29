@@ -10,6 +10,10 @@ user_router.post("/api/users", controller.register);
 user_router.post("/api/login", controller.user_login);
 user_router.post("/api/adminlogin", controller.admin_login);
 user_router.get("/api/verify/:token", controller.verify);
+user_router.post("/api/loan", controller.add_loan_form);
+user_router.get("/api/all_loans", controller.all_loans);
+user_router.patch("/api/loan_decline", controller.loan_decline);
+user_router.patch("/api/loan_approve_employer", controller.loan_approve_employer);
 
 
 module.exports = user_router;
