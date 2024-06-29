@@ -56,7 +56,7 @@ const Header = ({ userID, setUserID, setLocalUserID }) => {
                           </Link>
                         </li>
                         <li>
-                          <Link to={"/"} className="btn">
+                          <Link to={"/service"} className="btn">
                             Services
                           </Link>
                         </li>

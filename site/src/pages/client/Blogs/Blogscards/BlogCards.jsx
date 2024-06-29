@@ -17,20 +17,31 @@ const BlogCards = () => {
         <section id='blogCards'>
             <div className="container">
                 <div className="row">
+                    <div className="col-lg-6">
+                        <div className="headers">
+                            <h2>Blogs</h2>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
                     {blogs && blogs.map((el, idx) =>
                         <>
-                            <div key={idx} className="col-lg-4">
+                            <div key={idx} className="col-lg-4 col-md-6 col-sm-12 g-4">
                                 <div className="blogCard">
                                     <div className="card_img">
                                         <img src={el.src} alt="" />
                                     </div>
                                     <div className="card_desc">
+                                        <div>
                                         <h3>
                                             {el.title}
                                         </h3>
                                         <p>
                                             {el.description}
                                         </p>
+                                        </div>
+                                        <div>
+                                            
                                         <ul className='post_info'>
                                             <li>
                                                 <MdPersonOutline />
@@ -46,6 +57,7 @@ const BlogCards = () => {
                                             <Link to={`/blogdetail/${el._id}`} className='read_more'>Read More</Link>
                                         </div>
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>

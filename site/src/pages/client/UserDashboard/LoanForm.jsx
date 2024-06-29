@@ -1,4 +1,4 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useDataContext } from "../../../context/Context";
@@ -20,104 +20,72 @@ const LoanForm = () => {
             .positive("Term must be positive"),
     });
 
-    const initialValues = {
-        userId: userID.Id,
-        loanAmount: "",
-        loanPurpose: "",
-        status: "pending",
-        monthlyIncome: "",
-        employmentStatus: "",
-        loanTerm: "",
-    };
+    const formik = useFormik({
+        initialValues:{
+            userId: userID.Id,
+            loanAmount: "",
+            loanPurpose: "",
+            status: "pending",
+            monthlyIncome: "",
+            employmentStatus: "",
+            loanTerm: "",
+        },
+        validationSchema:validationSchema,
+onSubmit: (values, {resetForm }) => {
+    axios
+        .post("http:localhost:5050/api/loan", values)
+        .then((response) => {
+            console.log("Loan application submitted:", response.data);
+            resetForm();
+        })
+        .catch((error) => {
+            console.error(
+                "There was an error submitting the loan application!",
+                error
+            );
+        })
 
-    const onSubmit = (values, { setSubmitting, resetForm }) => {
-        axios
-            .post("http://localhost:5050/api/loan", values)
-            .then((response) => {
-                console.log("Loan application submitted:", response.data);
-                resetForm();
-            })
-            .catch((error) => {
-                console.error(
-                    "There was an error submitting the loan application!",
-                    error
-                );
-            })
-            .finally(() => {
-                setSubmitting(false);
-            });
-    };
+}
+    })
+
+
+   
     return (
-        // <section id='loanForm'>
-        //     <div className="container">
-        //         <div className="row">
-        //             <div className="col-lg-6">
-        //                 <form action="">
-        //                     <input type="text"  placeholder='Loan Amount' />
-        //                     <select name="" id="">
-        //                         <option selected disabled >Loan Purpose</option>
-        //                         <option value="cars">Cars Loan</option>
-        //                         <option value="personal">Personal Loan</option>
-        //                         <option value="home">Home Loan</option>
-        //                     </select>
-        //                     <input type="text"  placeholder='Montly Income' />
-        //                     <input type="text"  placeholder='Employment Status' />
-        //                     <input type="text"  placeholder='Loan tearm (in months)' />
-        //                 </form>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </section>
-        <div>
-            <h1>Loan Application Form</h1>
-            <Formik
-                initialValues={initialValues}
-                validationSchema={validationSchema}
-                onSubmit={onSubmit}
-            >
-                {({ isSubmitting }) => (
-                    <Form>
-                        <div>
-                            <label htmlFor="loanAmount">Loan Amount</label>
-                            <Field type="number" id="loanAmount" name="loanAmount" />
-                            <ErrorMessage name="loanAmount" component="div" />
-                        </div>
+        <>
+            <section id='loanForm'>
+                <div className="container">
+ 
+                    <div className="row justify-content-center">
+                        <div className="col-lg-7">
+                        <h1 className="text-dark-emphasis my-5">Loan Application Form</h1>
+                            <form onClick={formik.handleSubmit}>
+                            <input placeholder="LoanAmount" className="form-control my-2" id="loanAmount" name="loanAmount" type="number" onChange={formik.handleChange} value={formik.values.loanAmount} />
+              {formik.errors.loanAmount ? <div style={{ color: "red" }}>{formik.errors.loanAmount}</div> : null}
 
-                        <div>
-                            <label htmlFor="loanPurpose">Loan Purpose</label>
-                            <Field type="text" id="loanPurpose" name="loanPurpose" />
-                            <ErrorMessage name="loanPurpose" component="div" />
-                        </div>
+                                
+                                <select className="form-select" onChange={formik.handleChange} value={formik.values.loanPurpose} name="loanPurpose" id="loanPurpose">
+                                    <option selected disabled value="" >Loan Purpose</option>
+                                    <option value="cars">Cars Loan</option>
+                                    <option value="personal">Personal Loan</option>
+                                    <option value="home">Home Loan</option>
+                                </select>
+                                {formik.errors.loanPurpose ? <div style={{ color: "red" }}>{formik.errors.loanPurpose}</div> : null}
 
-                        <div>
-                            <label htmlFor="monthlyIncome">Monthly Income</label>
-                            <Field type="number" id="monthlyIncome" name="monthlyIncome" />
-                            <ErrorMessage name="monthlyIncome" component="div" />
-                        </div>
 
-                        <div>
-                            <label htmlFor="employmentStatus">Employment Status</label>
-                            <Field
-                                type="text"
-                                id="employmentStatus"
-                                name="employmentStatus"
-                            />
-                            <ErrorMessage name="employmentStatus" component="div" />
-                        </div>
+                                <input placeholder="Monthly Income" className="form-control my-2" id="monthlyIncome" name="monthlyIncome" type="number" onChange={formik.handleChange} value={formik.values.monthlyIncome} />
+              {formik.errors.monthlyIncome ? <div style={{ color: "red" }}>{formik.errors.monthlyIncome}</div> : null}
+                                <input placeholder="Employment Status" className="form-control my-2" id="employmentStatus" name="employmentStatus" type="text" onChange={formik.handleChange} value={formik.values.employmentStatus} />
+              {formik.errors.employmentStatus ? <div style={{ color: "red" }}>{formik.errors.employmentStatus}</div> : null}
+                                <input placeholder="Loan tearm (in months)" className="form-control my-2" id="loanTerm" name="loanTerm" type="number" onChange={formik.handleChange} value={formik.values.loanTerm} />
+              {formik.errors.loanTerm ? <div style={{ color: "red" }}>{formik.errors.loanTerm}</div> : null}
 
-                        <div>
-                            <label htmlFor="loanTerm">Loan Term (in months)</label>
-                            <Field type="number" id="loanTerm" name="loanTerm" />
-                            <ErrorMessage name="loanTerm" component="div" />
+                                <button className="btn btn-dark my-4" type="submit"> Submit</button>
+                            </form>
                         </div>
-
-                        <button type="submit" disabled={isSubmitting}>
-                            Submit
-                        </button>
-                    </Form>
-                )}
-            </Formik>
-        </div>
+                    </div>
+                </div>
+            </section>
+        </>
     )
 }
 

@@ -47,18 +47,18 @@ const UserDashboard = () => {
       <Hero text={"User Dashboard"}/>
       <section id='userDashboard'>
         <div className="user_loan_profile">
-        <div className="container">
+        <div className=" container-fluid">
         <div className="row">
-            <div className="col-lg-4">
+            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-2">
               <div className="profile">
                 <img src={oneUser.image} alt="" />
                 <div className="text">
-                  <h2>Welcome back! {oneUser.name}</h2>
-                  <p>We're happy to help you grow your business with Loanly Working Capital.</p>
+                  <h2>Welcome back! </h2>
+                  <p>{oneUser.name} {oneUser.surname}</p>
                 </div>
               </div>
             </div>
-            <div className="col-lg-2">
+            <div className="col-lg-2 col-md-2 col-sm-2">
               <div className="loan_box">
                <div className="text">
                <h2>{oneUser.loans}</h2>
@@ -66,13 +66,13 @@ const UserDashboard = () => {
                </div>
               </div>
             </div>
-            <div className="col-lg-6">
+            <div className="col-lg-6  col-md-6 col-sm-6">
               <div className="loan_box">
-                <div className="text">
+                <div className="text w-50">
                 <h2>{oneUser.balance}</h2>
                 <p>Total Balance</p>
                 </div>
-                <div className="text">
+                <div className="text w-50 ">
                   <h2>{oneUser.userId}</h2>
                   <p>User Id</p>
                 </div>

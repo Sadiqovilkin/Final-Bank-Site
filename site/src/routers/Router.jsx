@@ -15,6 +15,7 @@ import ClientRoot from "../pages/client/ClientRoot";
 import Contact from "../pages/client/Contact/Contact";
 import CompanyDashboard from "../pages/client/Home/CompanyDashboard/CompanyDashboard";
 import Home from "../pages/client/Home/Home";
+import Services from "../pages/client/Services/Services";
 import LoanForm from "../pages/client/UserDashboard/LoanForm";
 import UserDashboard from "../pages/client/UserDashboard/UserDashboard";
 
@@ -51,6 +52,10 @@ export const ROUTES = [
             {
                 path: "contact",
                 element: <Contact />
+            },
+            {
+                path: "service",
+                element: <Services />
             },
             {
                 path: "blogs",

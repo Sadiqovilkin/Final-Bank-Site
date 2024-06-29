@@ -74,7 +74,7 @@ const CompanyDashboard = () => {
         <div className="company_reguests">
           <div className="container">
             <h1>Loans Messages:</h1>
-            <div className="row">
+            <div className="row justify-content-center">
               <div className="col-lg-9">
               {Loans &&
             Loans.map((item) => (
