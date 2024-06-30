@@ -3,9 +3,25 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import { useOutletContext } from 'react-router';
-
+import Swal from "sweetalert2";
 const stripePromise = loadStripe('pk_test_qblFNYngBkEdjEZ16jxxoWSM');
-
+const CARD_ELEMENT_OPTIONS = {
+  style: {
+    base: {
+      color: '#32325d',
+      fontFamily: 'Arial, sans-serif',
+      fontSmoothing: 'antialiased',
+      fontSize: '16px',
+      '::placeholder': {
+        color: '#aab7c4',
+      },
+    },
+    invalid: {
+      color: '#fa755a',
+      iconColor: '#fa755a',
+    },
+  },
+};
 const PaymentForm = ({ onPaymentSuccess }) => {
     const [setUserID, setLocalUserID, userID] = useOutletContext();
     
@@ -29,6 +45,13 @@ const PaymentForm = ({ onPaymentSuccess }) => {
     });
 
     if (error) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: `${error.message}`,
+        showConfirmButton: false,
+        timer: 1500
+      });
       setMessage(error.message);
     } else {
       const { id } = paymentMethod;
@@ -43,7 +66,24 @@ const PaymentForm = ({ onPaymentSuccess }) => {
         if (response.data.success) {
           setMessage('Payment successful!');
           onPaymentSuccess(response.data.balance);
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Payment successful!",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          setTimeout(() => {
+            setMessage("")
+          }, 1500);
         } else {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Payment failed!",
+            showConfirmButton: false,
+            timer: 1500
+          });
           setMessage('Payment failed');
         }
       } catch (error) {
@@ -53,7 +93,7 @@ const PaymentForm = ({ onPaymentSuccess }) => {
   };
 
   return (
-    <div>
+    <div id='paymentForm'>
       <h2>Add Balance</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -62,14 +102,15 @@ const PaymentForm = ({ onPaymentSuccess }) => {
             type="number"
             id="amount"
             value={amount}
+            className='form-control my-2'
             onChange={(e) => setAmount(e.target.value)}
           />
         </div>
         <div>
-          <label htmlFor="card-element">Credit or Debit Card</label>
-          <CardElement id="card-element" />
+          <label className='my-2' htmlFor="card-element">Credit or Debit Card</label>
+          <CardElement id="card-element" options={CARD_ELEMENT_OPTIONS}/>
         </div>
-        <button type="submit" disabled={!stripe}>Pay</button>
+        <button className='btn ' type="submit" disabled={!stripe}>Pay</button>
       </form>
       {message && <p>{message}</p>}
     </div>

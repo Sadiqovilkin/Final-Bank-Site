@@ -142,7 +142,7 @@ const UserDashboard = () => {
     </h2>
     <div id={`collapse${idx}`} className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
       <div className="accordion-body">
-       
+      
       {item.paymentSchedule.map((schedule) => {
   const isPaid = schedule.isPaid;
   const loanClass = isPaid ? 'loan_accardion payed' : 'loan_accardion';
@@ -188,34 +188,7 @@ const UserDashboard = () => {
                     </li>
                   </ul> */}
 
-                  {/* {userLoan &&
-                    userLoan.map((item) =>
-                    
-                      item.paymentSchedule ? (
-                        
-                        <div className="accordion-item" key={item._id}>
-                          {item.paymentSchedule.map((schedule) => (
-                            <div key={schedule._id}>
-                              {schedule.monthName} -
-                              {new Date(schedule.date).toLocaleDateString()} -
-                              {item.monthlyPayment + "$"}
-                              <button
-                                onClick={() =>
-                                  monthly_loan_payment(item._id, schedule._id)
-                                }
-                                disabled={schedule.isPaid}
-                                className={schedule.isPaid ? "btn btn-light" : ""}
-                              >
-                                Pay
-                              </button>
-                            </div>
-                          ))}
-                        </div>
-                      ) : (
-                        <></>
-                      )
-                    )}  */}
-                  {/* <button className="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button> */}
+                 
                   <button className='btn' data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Make Payment</button>
                 </div>
                 <div className="send_money">
@@ -246,7 +219,7 @@ const UserDashboard = () => {
                             <input type="text" value={`Mebleg : ${x.loanAmount}`} disabled />
                             <input type="text" value={`Nece Ayliq : ${x.loanTerm}`} disabled />
                             <input type="text" value={`Faiz : ${x.interest}`} disabled />
-                            {x.isEmployerapproved ? <input type="text" value={`Ayliq Odenis:${(x.loanAmount + (x.loanAmount * x.interest / 100)) / x.loanTerm}`} disabled /> : <input type="text" value={`Ayliq Odenis : Hesablanir`} disabled />}
+                            {x.isEmployerapproved ? <input type="text" value={`Ayliq Odenis:${Math.round((safeValue((x.loanAmount + (x.loanAmount * x.interest / 100)) / x.loanTerm) + Number.EPSILON) * 100) / 100}`} disabled /> : <input type="text" value={`Ayliq Odenis : Hesablanir`} disabled />}
                             <input type="text" value={`Bank Status : ${x.isEmployerapproved ? "Qebul Edildi" : "Yoxlanisdadir"}`} disabled className="time" />
                           </div>
 

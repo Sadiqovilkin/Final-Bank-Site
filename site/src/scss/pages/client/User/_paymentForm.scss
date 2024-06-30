@@ -1,0 +1,26 @@
+#paymentForm{
+    border-top: 1px solid #ccc ;
+    padding: 25px 0;
+    border-bottom: 1px solid #ccc;
+    h2{
+        font-size: 29px;
+        font-weight: 700;
+    }
+    form{
+        div{
+            label{
+                font-size: 15px;
+                color: #ccc;
+                // margin: 15px 0;
+            }
+        }
+        button{
+            margin-top: 15px;
+            border: 1px solid $cyan-color;
+            &:active{
+                background-color: $cyan-color;
+                color: $white-color;
+            }
+        }
+    }
+}
