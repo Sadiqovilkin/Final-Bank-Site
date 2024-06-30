@@ -114,6 +114,28 @@ height: 100%;
                 }
             }
         }
+        .loan_accardion{
+            display: flex;
+            margin-bottom: 6px;
+            .texts{
+                width: 80%;
+                display: flex;
+                align-items: center;
+               span{
+                
+            } 
+            }
+            
+        }
+        .payed{
+            background-color: $cyan-color;
+            color:$white-color;
+            .texts{
+                span{
+                    color: $white-color !important;
+                }
+            }
+        }
         .send_money{
             border-bottom: 1px solid #ccc ;
             padding: 40px 0;

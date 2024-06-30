@@ -10,10 +10,12 @@ const CompanyDashboard = () => {
   const [isloading, setIsloading] = useState(true);
   const decline_loan = async(loanId)=>{
     await axios.patch("http://localhost:5050/api/loan_decline",{loanID:loanId})
+    getLoans()
   }
   const approve_loan = async(loanId,amount,term,interest)=>{
     
     await axios.patch("http://localhost:5050/api/loan_approve_employer",{loanID:loanId,amount, term, interest})
+    getLoans()
   }
 
   const getLoans = async () => {
@@ -78,6 +80,7 @@ const CompanyDashboard = () => {
               <div className="col-lg-9">
               {Loans &&
             Loans.map((item) => (
+              
                 <div key={item._id} className="activity">
                 <ul>
                   <li>UserId: {item.userId}</li>
@@ -99,12 +102,19 @@ const CompanyDashboard = () => {
                     </div>
                     <div>
                     <label htmlFor="">Faiz</label>
-                    <input type="number" placeholder='12% - 20 %' onChange={(e)=>item.interest = Number(e.target.value)}   min={12} max={20}/>
+                    <input type="number" placeholder='12% - 20 %' onChange={(e)=>item.interest = Number(e.target.value)} defaultValue={item.interest}   min={12} max={20}/>
                     </div>
                   </form>
-                  <div className="btns">
-                    <div className="btn btn-success" onClick={()=>approve_loan(item._id,item.loanAmount,item.loanTerm,item.interest)}>Accept</div>
-                    <div className="btn btn-danger" onClick={()=>decline_loan(item._id)}>Reject</div>
+                  <div className="btns d-flex flex-column">
+                  {item.isEmployerapproved != true ?  <div className="loan_btn">
+                      <button className="btn btn-success mx-2" onClick={()=>approve_loan(item._id,item.loanAmount,item.loanTerm,item.interest)}>Accept</button>
+                      <button className="btn btn-danger  mx-2" onClick={()=>decline_loan(item._id)}>Reject</button>
+                    </div> : <></> }
+                    <div className="loan_status my-2">
+                    
+                      Status: { item.isEmployerapproved  ?  <span className='success'>Succsess</span>  :  <span className='declined'>Rejected</span> }  
+                    </div>
+                   
                   </div>
                 </div>
 

@@ -21,8 +21,16 @@ const loanSchema = new mongoose.Schema({
     default: false,
   },
   interest: Number,
+  monthlyPayment: { type: Number }, 
+  paymentSchedule: [
+    {
+      monthName: { type: String },
+      date: { type: Date },
+      isPaid: { type: Boolean, default: false }
+    }
+  ]
 });
 
-const Loan = mongoose.model("Loan", loanSchema);
 
-module.exports = Loan;
+
+module.exports = loanSchema;

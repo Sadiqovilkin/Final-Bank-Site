@@ -5,7 +5,6 @@ dotenv.config();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const generateAccessToken = require("../helpers/generateAccessToken.js");
-const Loan = require("../schemas/loan.schema.js");
 
 
 const user_controller = {
@@ -217,80 +216,6 @@ const user_controller = {
       })
     }
     res.send({message:'hey'})
-  },
-  add_loan_form: async (req, res) => {
-    try {
-      const loan = new Loan(req.body);
-      await loan.save();
-      res.status(201).send({ message: 'Loan application submitted successfully', loan });
-    } catch (error) {
-      res.status(500).send({ message: 'Error submitting loan application', error });
-    }
-  },
-  all_loans : async (req, res)=>{
-    try {
-      const loan = await Loan.find({});
-      res.status(201).send(loan);
-    } catch (error) {
-      res.status(500).send({ message: 'Error ', error });
-    }
-  },
-  // loan_accept: async (req, res)=>{
-  //   try {
-  //     const loanId = req.body.loanID
-  //     const loan = await Loan.findOne({ _id: loanId });
-  //     const userId = loan.userId
-  //     const user = await UserModel.findOne({ _id: userId });
-  //     user.balance += loan.loanAmount;
-  //     user.loans += loan.loanAmount;
-  //     loan.status = "approved"
-  //     await user.save();
-  //     await loan.save();
-  
-  //     res.status(201).send("Loan Succesfully Added!");
-  //   } catch (error) {
-  //     res.status(500).send({ message: 'Error ', error });
-  //   }
-  // },
-  loan_decline: async (req, res)=>{
-    try {
-      const loanId = req.body.loanID
-      const loan = await Loan.findOne({ _id: loanId });
-      loan.status = "declined"
-      await loan.save();
-  
-      res.status(201).send("Loan Declined!");
-    } catch (error) {
-      res.status(500).send({ message: 'Error ', error });
-    }
-  },
-  loan_approve_employer: async (req, res)=>{
-    try {
-      const loanId = req.body.loanID
-      const loan = await Loan.findOne({ _id: loanId });
-      loan.isEmployerapproved = true
-      loan.loanAmount = req.body.amount
-      loan.loanTerm = req.body.term
-      loan.interest = req.body.interest
-      console.log(req.body);
-      await loan.save();
-      
-      res.status(201).send("Loan Declined!");
-    } catch (error) {
-      res.status(500).send({ message: 'Error ', error });
-    }
-  },
-  users_loan: async (req, res)=>{
-    try {
-      const loanId = req.body.loanID
-      const loan = await Loan.findOne({ _id: loanId });
-      loan.status = "declined"
-      await loan.save();
-  
-      res.status(201).send("Loan Declined!");
-    } catch (error) {
-      res.status(500).send({ message: 'Error ', error });
-    }
   },
 };
 
