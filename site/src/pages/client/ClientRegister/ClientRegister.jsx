@@ -85,10 +85,10 @@ const ClientRegister = () => {
                <input placeholder="image" className="form-control  my-2" id="image" name="image" type="text" onChange={formik.handleChange} value={formik.values.image} />
                 {formik.errors.image ? <div style={{ color: "red" }}>{formik.errors.image}</div> : null}
                 <select onChange={formik.handleChange} value={formik.values.gender} className='form-control my-2' name="gender" id="gender">
-                  <option value=""  disabled selected >Choose Gender</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                </select>
+  <option value="" disabled>Choose Gender</option>
+  <option value="male">Male</option>
+  <option value="female">Female</option>
+</select>
                 {formik.errors.gender ? <div style={{ color: "red" }}>{formik.errors.gender}</div> : null}
 
         </fieldset>

@@ -64,7 +64,7 @@ const DataContextProvider = ({ children }) => {
     }
 
 
-    const values = { users, oneUser, sendMoney, userGetAll, userGetOne, userDelete, userPost, adminID, setAdminID, setLocalAdminID,userID };
+    const values = { users, oneUser, sendMoney, userGetAll, userGetOne, userDelete, userPost, adminID, setAdminID, setLocalAdminID,userID ,setUserID , setLocalUserID};
     return <dataContext.Provider value={values}>{children}</dataContext.Provider>;
 };
 
