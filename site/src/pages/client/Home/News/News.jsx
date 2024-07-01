@@ -29,7 +29,7 @@ const News = () => {
             </div>
           </div>
           <div className="col-lg-6 p-0 g-3 pl-3">
-            <div className="loan_card red_news">
+            <div className="loan_card red_news m-0">
               <div className="head">
                 <h2>Human resources</h2>
               </div>

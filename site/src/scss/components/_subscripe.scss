@@ -1,0 +1,50 @@
+#subscripe{
+    padding: 58px 0px 58px 0px;
+    background-color: $orange-color;
+    .subscripeText{
+        color: #FFFFFF;
+        font-family: "Manrope", Sans-serif;
+        font-size: 40px;
+        font-weight: 800;
+        line-height: 52px;
+    }
+    form{
+        display: flex;
+        justify-content: space-between;
+        input{
+            width: 62%;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 18px;
+            background-color: #FFFFFF26;
+            padding: 20px 10px 20px 20px;
+            border-radius: 2px;
+          border: none;
+    &::placeholder{
+        color: #FFFFFF;
+    }
+    &:focus{
+        border-width: 1px;
+        border-style: solid;
+        border-color: #eaeaea;
+    }
+        }
+        button{
+            padding: 18px 47px 18px 47px;
+    font-family: "Manrope", Sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    background-color: #0A0F20;
+    border-style: none;
+    transition: .5s all;
+    box-shadow: 0px 0px 0px 0px rgba(2.0000000000000293, 1.0000000000000147, 1.0000000000000147, 0.29);
+            &:hover{
+                background-color: #FFFFFF;
+                color: #0A0F20;
+            }
+        }
+    }
+}

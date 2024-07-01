@@ -2,7 +2,7 @@
     .sliders{
         width: 99%;
         height: 100vh;
-        background-image: url("	https://23july.hostlin.com/metrobank/wp-content/uploads/2023/10/banner-2.jpg");
+        // background-image: url("	https://23july.hostlin.com/metrobank/wp-content/uploads/2023/10/banner-2.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -31,6 +31,10 @@
                 line-height: 80px;
                 font-weight: 700;
                 margin-bottom: 20px;
+                @media (max-width:425px) {
+                    font-size: 40px;
+                    line-height: 45px;
+                }
                 span{
                     color: $orange-color;
                 }
@@ -72,9 +76,9 @@
     transition: .5s;
     border: 2px solid #fff;
     color: $orange-color;
-    // svg{
-    //     width:40px ;
-    // }
+    @media (max-width:425px) {
+        margin-left: 10px;
+    }
     &::after{
         // content: "";
         font-size: 25px;
@@ -95,9 +99,9 @@
         transition: .5s;
         border: 2px solid #fff;
         color: $orange-color;
-        // svg{
-        //     width:40px ;
-        // }
+        @media (max-width:425px) {
+            margin-right: 10px;
+        }
         &::after{
             font-size: 25px;
         }

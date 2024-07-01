@@ -172,8 +172,10 @@ const Header = ({ userID, setUserID, setLocalUserID }) => {
                 </>
               )}
             </div>
-            <div className="row  mobileNavbar justify-content-end px-4">
+            <div className="row  mobileNavbar justify-content-end ">
+              <div className="col-md-3 col-sm-3 col-3 ">
               <HiMenu onClick={() => {setNavbar("active")}} />
+              </div>
             </div>
           </div>
         </div>

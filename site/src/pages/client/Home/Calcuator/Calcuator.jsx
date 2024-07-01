@@ -82,7 +82,7 @@ const Calcuator = () => {
         <section id="calcuator">
             <div className="container mt-2">
                 <div className="row py-3">
-                    <div className="col-5">
+                    <div className="col-lg-5 col-md-6 col-sm-12">
                         <h2 id="header">Online Credit Calculator</h2>
                         <div className="btns">
                             <button

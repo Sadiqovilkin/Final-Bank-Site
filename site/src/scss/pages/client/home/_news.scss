@@ -2,7 +2,7 @@
     .loan_card {
       background: #e8ecf1;
       border-radius: 8px;
-  
+      width: 100%;
       padding: 40px 40px 0;
       .head {
         h2 {
@@ -45,7 +45,6 @@
       }
     }
     .red_news {
-      margin-left: 10px;
       background-color: $orange-color;
       .head {
         h2 {

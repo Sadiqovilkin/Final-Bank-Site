@@ -79,7 +79,7 @@ const CompanyDashboard = () => {
             <div className="row justify-content-center">
               <div className="col-lg-9">
               {Loans &&
-            Loans.map((item) => (
+            Loans.toReversed().map((item) => (
               
                 <div key={item._id} className="activity">
                 <ul>
@@ -112,7 +112,7 @@ const CompanyDashboard = () => {
                     </div> : <></> }
                     <div className="loan_status my-2">
                     
-                      Status: { item.isEmployerapproved  ?  <span className='success'>Succsess</span>  :  <span className='declined'>Rejected</span> }  
+                      Status: {item.status == "pending" ? <> <span>Pending</span> </> : item.status == "approved" ? <span className='success'>Succsess</span> : <span className='declined'>Rejected</span>}  
                     </div>
                    
                   </div>

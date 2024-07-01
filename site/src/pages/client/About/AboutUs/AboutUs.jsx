@@ -6,7 +6,7 @@ const AboutUs = () => {
     <section id='aboutUs'>
         <div className="container">
             <div className="row">
-                <div className="col-lg-6">
+                <div className="col-lg-6 col-md-12 col-sm-12 g-5">
                 <div className="aboutImg">
                     <img src="https://23july.hostlin.com/metrobank/wp-content/uploads/2023/10/about-1.jpg" alt="" />
                 <div className="image_circle">
@@ -27,7 +27,7 @@ const AboutUs = () => {
                 </div>
                 </div>
                 </div>
-                <div className="col-lg-6">
+                <div className="col-lg-6 col-md-12 col-sm-12 g-5">
                     <div className="aboutText">
                         <h6>About Us</h6>
                         <h2>Financial Guidance for Every

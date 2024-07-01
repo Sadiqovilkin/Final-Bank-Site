@@ -14,7 +14,7 @@ const Slider = () => {
       }} loop={true} className="mySwiper">
         <SwiperSlide>
 
-        <div className="sliders">
+        <div className="sliders" style={{backgroundImage:"url(https://23july.hostlin.com/metrobank/wp-content/uploads/2023/10/banner-2.jpg)"}}>
         <div className="inner">
           <h1>
             Open our <span>Current</span> <br /> Account Online
@@ -36,7 +36,7 @@ const Slider = () => {
         </SwiperSlide>
         <SwiperSlide>
 
-        <div className="sliders">
+        <div className="sliders" style={{backgroundImage:"url(https://23july.hostlin.com/metrobank/wp-content/uploads/2023/10/banner-3.jpg)"}}>
         <div className="inner">
           <h1>
             Open our <span>Current</span> <br /> Account Online
@@ -58,7 +58,7 @@ const Slider = () => {
         </SwiperSlide>
         <SwiperSlide>
 
-        <div className="sliders">
+        <div className="sliders" style={{backgroundImage:"url(https://23july.hostlin.com/metrobank/wp-content/uploads/2023/10/banner-1.jpg)"}}>
         <div className="inner">
           <h1>
             Open our <span>Current</span> <br /> Account Online
@@ -79,12 +79,7 @@ const Slider = () => {
       </div>
         </SwiperSlide>
         
-        {/* <div class="swiper-button-prev">
-          <TiArrowLeft/>
-        </div>
-        <div class="swiper-button-next">
-          <TiArrowRight/>
-        </div> */}
+       
       </Swiper>
     
     </section>
