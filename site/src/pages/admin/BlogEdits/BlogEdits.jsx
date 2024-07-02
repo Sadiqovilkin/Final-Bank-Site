@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 
 const BlogEdits = () => {
     const [updateBlog, setUpdateBlog] = useState({});
+    console.log(updateBlog);
     const { id } = useParams();
     const navigate = useNavigate();
     useEffect(() => {

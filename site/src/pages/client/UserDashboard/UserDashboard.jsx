@@ -8,6 +8,7 @@ import { endpoints } from '../../../services/constant';
 import { useState } from 'react';
 import axios from 'axios';
 import Payment from "./PaymentForm";
+import Swal from 'sweetalert2';
 const UserDashboard = () => {
   const [setUserID, setLocalUserID, userID] = useOutletContext();
   const { sendMoney, userGetOne } = useDataContext()
@@ -37,6 +38,40 @@ const UserDashboard = () => {
       formik.resetForm()
     }
   })
+  // console.log(Object(oneUser));
+  const formikuptdate = useFormik({
+    initialValues: {
+      name: oneUser?.name,
+      surname: oneUser?.surname,
+      address: oneUser?.address,
+      city: oneUser?.city,
+      region: oneUser?.region,
+      phone: oneUser?.phone,
+      dateofbirth: oneUser?.dateofbirth,
+      email: oneUser?.email,
+      image: oneUser?.image,
+      companyName: oneUser?.companyName,
+      seniority: oneUser?.seniority,
+    },
+    enableReinitialize: true,
+    onSubmit:(values)=>{
+  
+      controller.patch(endpoints.Users , oneUser._id , {name:values.name,surname:values.surname,address:values.address,city:values.city,region:values.region , phone:values.phone , dateofbirth:values.dateofbirth, email:values.email  , image:values.image , companyName:values.companyName , seniority:values.seniority , })
+    //   console.log(oneUser.name);
+    //  console.log("newUsers", values);
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "User succses Sign Up",
+        showConfirmButton: false,
+        timer: 1500
+      })
+      getUser()
+      formikuptdate.resetForm()  
+    },
+  })
+
+
   const handlePaymentSuccess = (newBalance) => {
     setOneUser((prevState) => ({
       ...prevState,
@@ -75,6 +110,69 @@ const UserDashboard = () => {
   // console.log(oneUser);
   return (
     <main>
+      <div className="modal fade" id="uptdateModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabIndex="-1">
+            <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h1 className="modal-title fs-5" id="exampleModalToggleLabel">Loan Modal</h1>
+                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                    </div>
+                    <div className="modal-body">
+                    <form onSubmit={formikuptdate.handleSubmit}>
+        <fieldset>
+          <legend>Personal Informations</legend>
+          <div className="fulnames d-flex gap-3">
+                <input placeholder="name" className="form-control w-50 my-2" id="name" name="name" type="text" onChange={formikuptdate.handleChange} defaultValue={formikuptdate.values.name} />
+                {formikuptdate.errors.name ? <div style={{ color: "red" }}>{formikuptdate.errors.name}</div> : null}
+                <input placeholder="surname" className="form-control w-50 my-2" id="surname" name="surname" type="text" onChange={formikuptdate.handleChange} defaultValue={formikuptdate.values.surname} />
+                {formikuptdate.errors.surname ? <div style={{ color: "red" }}>{formikuptdate.errors.surname}</div> : null}
+              </div>
+              <input placeholder="address" className="form-control  my-2" id="address" name="address" type="text" onChange={formikuptdate.handleChange} defaultValue={formikuptdate.values.address} />
+                {formikuptdate.errors.address ? <div style={{ color: "red" }}>{formikuptdate.errors.address}</div> : null}
+                <input placeholder="city" className="form-control  my-2" id="city" name="city" type="text" onChange={formikuptdate.handleChange} defaultValue={formikuptdate.values.city} />
+                {formikuptdate.errors.city ? <div style={{ color: "red" }}>{formikuptdate.errors.city}</div> : null}
+                <input placeholder="region" className="form-control  my-2" id="region" name="region" type="text" onChange={formikuptdate.handleChange} defaultValue={formikuptdate.values.region} />
+                {formikuptdate.errors.region ? <div style={{ color: "red" }}>{formikuptdate.errors.region}</div> : null}
+                  <div className="d-flex gap-3">
+                  <input placeholder="phone" className="form-control w-50  my-2" id="phone" name="phone" type="tel" onChange={formikuptdate.handleChange} defaultValue={formikuptdate.values.phone} />
+                {formikuptdate.errors.phone ? <div style={{ color: "red" }}>{formikuptdate.errors.phone}</div> : null}
+                <input placeholder="dateofbirth" className="form-control w-50  my-2" id="dateofbirth" name="dateofbirth" type="date" onChange={formikuptdate.handleChange} defaultValue={formikuptdate.values.dateofbirth} />
+                {formikuptdate.errors.dateofbirth ? <div style={{ color: "red" }}>{formikuptdate.errors.dateofbirth}</div> : null}
+                  </div>
+                <input placeholder="email" className="form-control  my-2" id="email" name="email" type="email" onChange={formikuptdate.handleChange} defaultValue={formikuptdate.values.email} />
+                {formikuptdate.errors.email ? <div style={{ color: "red" }}>{formikuptdate.errors.email}</div> : null}
+              
+               <input placeholder="image" className="form-control  my-2" id="image" name="image" type="text" onChange={formikuptdate.handleChange} defaultValue={formikuptdate.values.image} />
+                {formikuptdate.errors.image ? <div style={{ color: "red" }}>{formikuptdate.errors.image}</div> : null}
+             
+        </fieldset>
+
+
+
+                <fieldset >
+                  <legend>Company Informations </legend>
+                <input placeholder="companyName" className="form-control  my-2" id="companyName" name="companyName" type="text" onChange={formikuptdate.handleChange} defaultValue={formikuptdate.values.companyName} />
+                {formikuptdate.errors.companyName ? <div style={{ color: "red" }}>{formikuptdate.errors.companyName}</div> : null}
+              
+                <input placeholder="seniority" className="form-control  my-2" id="seniority" name="seniority" type="text" onChange={formikuptdate.handleChange} defaultValue={formikuptdate.values.seniority} />
+                {formikuptdate.errors.seniority ? <div style={{ color: "red" }}>{formikuptdate.errors.seniority}</div> : null}
+
+                </fieldset>
+                
+                
+                
+                
+              
+              
+              
+              
+              
+              <button type='submit' className='btn btn-primary'>Uptdate</button>
+            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
       <Hero text={"User Dashboard"} />
       <section id='userDashboard'>
         <div className="user_loan_profile">
@@ -85,7 +183,8 @@ const UserDashboard = () => {
                   <img src={oneUser.image} alt="" />
                   <div className="text">
                     <h2>Welcome back! </h2>
-                    <p>{oneUser.name} {oneUser.surname}</p>
+                    <p>{oneUser.name} {oneUser.surname} </p>
+                    <button data-bs-target="#uptdateModalToggle" data-bs-toggle="modal" className='btn btn-info my-2'>Profile Uptdate</button>
                   </div>
                 </div>
               </div>
